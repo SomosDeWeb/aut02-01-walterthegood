@@ -45,6 +45,7 @@ public class Main {
                     manejarListarEstudiantes();
                     break;
                 case 3:
+                    manejarBuscarPorNombre();
                     break;
                 case 4:
 
@@ -158,6 +159,22 @@ public class Main {
         } else {
             for(Estudiante estudiante : lista) {
                 System.out.printf("%s (%d años) Nota Media %.2f - Matriculado: %s %n", estudiante.getNombre(), estudiante.getEdad(), estudiante.getNotaMedia(), estudiante.isMatriculado() ? "\u001b[32mtrue\u001b[0m" : "\u001b[31mfalse\u001b[0m");
+            }
+        }
+
+    }
+
+    // 3ra opciion
+    private static void manejarBuscarPorNombre() {
+        String nombreBuscar = pedirStringNoVacio(AZUL+"Introduce nombre a buscar:");
+        List<Estudiante> encontrados = StudiantesController.buscarPorNombre(nombreBuscar);
+        if (encontrados.isEmpty()) {
+            System.out.println((ROJO+"Ese estudiante NO existe en el registro."+RESET));
+        } else {
+            System.out.println(AZUL+"ESTUDIANTES ENCONTRADOS"+RESET);
+
+            for(Estudiante estudiante : encontrados) {
+                System.out.printf("Encontrado: %s (Edad: %d, Nota: %.2f) %n", estudiante.getNombre(), estudiante.getEdad(), estudiante.getNotaMedia());
             }
         }
 

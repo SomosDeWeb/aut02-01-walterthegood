@@ -19,6 +19,19 @@ public class StudiantesController {
         estudiantes.add(nuevo);
     }
 
+    public static List<Estudiante> buscarPorNombre(String nombreBuscar) {
+
+        List<Estudiante> encontrados = new ArrayList();
+
+        for(Estudiante estudiante : estudiantes) {
+            if (estudiante.getNombre().equalsIgnoreCase(nombreBuscar) || estudiante.getNombre().contains(nombreBuscar)) {
+                encontrados.add(estudiante);
+            }
+        }
+
+        return encontrados;
+    }
+
 
 
 }
