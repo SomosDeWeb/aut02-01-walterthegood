@@ -1,5 +1,6 @@
 package org.example;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -41,6 +42,7 @@ public class Main {
                     NuevoEstudiante();
                     break;
                 case 2:
+                    manejarListarEstudiantes();
                     break;
                 case 3:
                     break;
@@ -148,8 +150,18 @@ public class Main {
     }
 
 
+    // Segunda Opcion del swith
+    private static void manejarListarEstudiantes() {
+        List<Estudiante> lista = StudiantesController.getListaEstudiantes();
+        if (lista.isEmpty()) {
+            System.out.println(ROJO+"No hay estudiantes registrados."+RESET);
+        } else {
+            for(Estudiante estudiante : lista) {
+                System.out.printf("%s (%d años) Nota Media %.2f - Matriculado: %s %n", estudiante.getNombre(), estudiante.getEdad(), estudiante.getNotaMedia(), estudiante.isMatriculado() ? "\u001b[32mtrue\u001b[0m" : "\u001b[31mfalse\u001b[0m");
+            }
+        }
 
-
+    }
 
 
 
