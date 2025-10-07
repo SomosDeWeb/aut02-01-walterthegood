@@ -19,6 +19,7 @@ public class StudiantesController {
         estudiantes.add(nuevo);
     }
 
+    //3era opcion
     public static List<Estudiante> buscarPorNombre(String nombreBuscar) {
 
         List<Estudiante> encontrados = new ArrayList();
@@ -30,6 +31,21 @@ public class StudiantesController {
         }
 
         return encontrados;
+    }
+
+    //4ta opcion
+    public static double calcularNotaMediaGeneral() {
+        if (estudiantes.isEmpty()) {
+            return (double)0.0F;
+        } else {
+            double suma = (double)0.0F;
+
+            for(Estudiante estudiante : estudiantes) {
+                suma += estudiante.getNotaMedia();
+            }
+
+            return suma / (double)estudiantes.size();
+        }
     }
 
 

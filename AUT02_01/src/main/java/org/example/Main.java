@@ -48,7 +48,7 @@ public class Main {
                     manejarBuscarPorNombre();
                     break;
                 case 4:
-
+                    manejarNotaMediaGeneral();
                     break;
                 case 5:
 
@@ -179,6 +179,18 @@ public class Main {
         }
 
     }
+
+    // 4ta opcion
+    private static void manejarNotaMediaGeneral() {
+        double media = StudiantesController.calcularNotaMediaGeneral();
+        if (StudiantesController.getListaEstudiantes().isEmpty()) {
+            System.out.println(ROJO+"No hay estudiantes para hacer una media general"+RESET);
+        } else {
+            System.out.printf("La media general es %.2f \n", media);
+        }
+
+    }
+
 
 
 
