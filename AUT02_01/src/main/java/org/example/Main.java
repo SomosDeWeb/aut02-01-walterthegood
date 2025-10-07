@@ -51,7 +51,7 @@ public class Main {
                     manejarNotaMediaGeneral();
                     break;
                 case 5:
-
+                    manejarMejorEstudiante();
                     break;
                 case 6:
                     salir = false;
@@ -158,7 +158,7 @@ public class Main {
             System.out.println(ROJO+"No hay estudiantes registrados."+RESET);
         } else {
             for(Estudiante estudiante : lista) {
-                System.out.printf("%s (%d años) Nota Media %.2f - Matriculado: %s %n", estudiante.getNombre(), estudiante.getEdad(), estudiante.getNotaMedia(), estudiante.isMatriculado() ? "\u001b[32mtrue\u001b[0m" : "\u001b[31mfalse\u001b[0m");
+                System.out.printf("%s (%d años) Nota Media %.2f - Matriculado: %s %n", estudiante.getNombre(), estudiante.getEdad(), estudiante.getNotaMedia(), estudiante.isMatriculado() ? ROJO+"true"+RESET : AZUL+"false"+RESET);
             }
         }
 
@@ -187,6 +187,17 @@ public class Main {
             System.out.println(ROJO+"No hay estudiantes para hacer una media general"+RESET);
         } else {
             System.out.printf("La media general es %.2f \n", media);
+        }
+
+    }
+
+    //5ta opcion
+    private static void manejarMejorEstudiante() {
+        Estudiante mejor = StudiantesController.getMejorEstudiante();
+        if (mejor == null) {
+            System.out.println(ROJO+"No hay estudiantes para ver el Mejor"+ROJO );
+        } else {
+            System.out.printf("%s con una nota media de %.2f. es el GOAT %n", mejor.getNombre(), mejor.getNotaMedia());
         }
 
     }

@@ -48,6 +48,26 @@ public class StudiantesController {
         }
     }
 
+    //5ta opcion
+    public static Estudiante getMejorEstudiante() {
+        if (estudiantes.isEmpty()) {
+            return null;
+        } else {
+            Estudiante mejorEstudiante = null;
+            double notaMaxima = (double)-1.0F;
+
+            for(Estudiante estudiante : estudiantes) {
+                if (estudiante.getNotaMedia() > notaMaxima) {
+                    notaMaxima = estudiante.getNotaMedia();
+                    mejorEstudiante = estudiante;
+                }
+            }
+
+            return mejorEstudiante;
+        }
+    }
+
+
 
 
 }
